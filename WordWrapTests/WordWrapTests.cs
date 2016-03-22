@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WordWrap
+namespace WordWrapTestsNamespace
 {
     using FluentAssertions;
+
+    using WordWrapNamespace;
 
     [TestClass]
     public class WordWrapTests
@@ -11,14 +13,10 @@ namespace WordWrap
         [TestMethod]
         public void Given_A_String_Without_Spaces_WordWrap_Should_Return_Same_String()
         {
-            var result = WordWrapString("hello", 8);
+            WordWrap wordWrap = new WordWrap();
+            var result = wordWrap.WordWrapString("hello", 8);
 
             result.Should().Be("hello");
-        }
-
-        private object WordWrapString(string text, int width)
-        {
-            return text;
         }
     }
 }
