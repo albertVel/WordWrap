@@ -10,7 +10,7 @@ namespace WordWrapNamespace
     {
         public string WordWrapString(string text, int width)
         {
-            return text;
+            return text.Replace(' ', '\n');
         }
     }
 }
