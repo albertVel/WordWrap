@@ -18,7 +18,7 @@ namespace WordWrap
 
         private object WordWrapString(string text, int width)
         {
-            throw new NotImplementedException();
+            return text;
         }
     }
 }
