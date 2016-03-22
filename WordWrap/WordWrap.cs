@@ -10,15 +10,17 @@ namespace WordWrapNamespace
     {
         public string WordWrapString(string text, int width)
         {
-            var temp = string.Empty;
+            var temp = text;
 
-            if (width >= text.Length)
+            if (width < text.Length)
             {
-                temp = text;
-            }
-            else
-            {
-                temp = text.Replace(' ', '\n');
+                var cuttingPoint = text.LastIndexOf(" ");
+                if (cuttingPoint != -1)
+                {
+                    var wrappedText = text.Substring(cuttingPoint).Trim();
+                    var remainingText = text.Substring(0, cuttingPoint);
+                    return this.WordWrapString(remainingText, width) + "\n" + wrappedText;
+                }
             }
 
             return temp;
