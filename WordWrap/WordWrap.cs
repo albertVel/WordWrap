@@ -17,9 +17,7 @@ namespace WordWrapNamespace
                 var cuttingPoint = text.LastIndexOf(" ");
                 if (cuttingPoint != -1)
                 {
-                    var wrappedText = text.Substring(cuttingPoint).Trim();
-                    var remainingText = text.Substring(0, cuttingPoint);
-                    return this.WordWrapString(remainingText, width) + "\n" + wrappedText;
+                    return this.WrapWord(cuttingPoint, text, width);
                 }
                 else
                 {
@@ -27,14 +25,19 @@ namespace WordWrapNamespace
                     {
                         var cuttingPointTextNoSpaces = text.Length - width;
 
-                        var wrappedText = text.Substring(cuttingPointTextNoSpaces).Trim();
-                        var remainingText = text.Substring(0, cuttingPointTextNoSpaces);
-                        return this.WordWrapString(remainingText, width) + "\n" + wrappedText;
+                        return this.WrapWord(cuttingPointTextNoSpaces, text, width);
                     }
                 }
             }
 
             return temp;
+        }
+
+        private string WrapWord(int cuttingPoint, string text, int width)
+        {
+            var wrappedText = text.Substring(cuttingPoint).Trim();
+            var remainingText = text.Substring(0, cuttingPoint);
+            return this.WordWrapString(remainingText, width) + "\n" + wrappedText;
         }
 
         private bool TextDoNotFit(string text, int width)
