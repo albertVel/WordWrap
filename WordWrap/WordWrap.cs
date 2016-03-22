@@ -8,7 +8,7 @@ namespace WordWrapNamespace
 {
     public class WordWrap
     {
-        public object WordWrapString(string text, int width)
+        public string WordWrapString(string text, int width)
         {
             return text;
         }
