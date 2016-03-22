@@ -10,7 +10,18 @@ namespace WordWrapNamespace
     {
         public string WordWrapString(string text, int width)
         {
-            return text.Replace(' ', '\n');
+            var temp = string.Empty;
+
+            if (width >= text.Length)
+            {
+                temp = text;
+            }
+            else
+            {
+                temp = text.Replace(' ', '\n');
+            }
+
+            return temp;
         }
     }
 }
