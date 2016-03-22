@@ -46,5 +46,14 @@ namespace WordWrapTestsNamespace
 
             result.Should().Be("welcome to\ntdd\nYoungPadawan");
         }
+
+        [TestMethod]
+        public void Given_A_String_With_No_Spaces_And_Width_Smaller_Than_String_Length_WordWrap_Should_Return_String_Splitted_By_Several_Line_Feeds()
+        {
+            WordWrap wordWrap = new WordWrap();
+            var result = wordWrap.WordWrapString("ThisLongStringShouldBeSplittedSeveralTimes", 14);
+
+            result.Should().Be("ThisLongString\nShouldBeSplitt\nedSeveralTimes");
+        }  
     }
 }
