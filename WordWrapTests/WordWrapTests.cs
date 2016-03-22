@@ -27,5 +27,15 @@ namespace WordWrapTestsNamespace
 
             result.Should().Be("hello\nboy");
         }
+
+
+        [TestMethod]
+        public void Given_A_String_With_Several_Spaces_And_Width_Smaller_Than_String_Length_WordWrap_Should_Return_String_Splitted_By_Line_Feed_Last_Word()
+        {
+            WordWrap wordWrap = new WordWrap();
+            var result = wordWrap.WordWrapString("welcome to tdd", 12);
+
+            result.Should().Be("welcome to\ntdd");
+        }
     }
 }
