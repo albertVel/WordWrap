@@ -57,12 +57,12 @@ namespace WordWrapTestsNamespace
         }
 
         [TestMethod]
-        public void Given_A_String_With_Big_Word_WithoutSpaces_And_Several_With_Spaces_And_Width_Smaller_Than_String_Length_WordWrap_Should_Return_String_Splitted_By_Several_Line_Feeds()
+        public void Given_A_String_With_Several_Spaces_And_Width_Able_To_Fit_Several_Words_Should_Return_String_Splitted_By_Several_Line_Feeds()
         {
             WordWrap wordWrap = new WordWrap();
-            var result = wordWrap.WordWrapString("ThisLongStringShouldBeSplittedSeveralTimes but also the words separated by spaces", 14);
+            var result = wordWrap.WordWrapString("This sentence should be splitted several times", 19);
 
-            result.Should().Be("ThisLongString\nShouldBeSplitt\nedSeveralTimes\nbut also the\nwords\nseparated by\nspaces");
+            result.Should().Be("This sentence\nshould be splitted\nseveral times");
         }
     }
 }
